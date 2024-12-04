@@ -2,6 +2,7 @@ package dxhd;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 public class LogBuffer {
 
@@ -11,11 +12,19 @@ public class LogBuffer {
         logQueue = new ArrayBlockingQueue<>(bufferSize);
     }
 
-    public void put(LogEntry log) throws InterruptedException {
-        logQueue.put(log);
+    public void put(LogEntry log) {
+        try {
+            logQueue.put(log);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e); //TODO обработать исключение
+        }
     }
 
-    public void take() throws InterruptedException {
-        logQueue.take();
+    public LogEntry poll(long timeout, TimeUnit unit) {
+        try {
+            return logQueue.poll(timeout, unit);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e); //TODO обработать исключение
+        }
     }
 }

@@ -1,12 +1,7 @@
 package dxhd;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
 public class TimeInterval {
 
     private LocalDateTime start;
@@ -30,24 +25,67 @@ public class TimeInterval {
         totalCount++;
     }
 
-    public void decrementFailure() {
-        failureCount--;
+    public LocalDateTime getStart() {
+        return start;
     }
 
-    public void decrementSuccess() {
-        successCount--;
+    public void setStart(LocalDateTime start) {
+        this.start = start;
     }
 
-    public void decrementTotal() {
-        totalCount--;
+    public LocalDateTime getEnd() {
+        return end;
     }
 
-    @Override
-    public String toString() {
-        return "TimeInterval{" +
-                "start=" + start +
-                ", end=" + end +
-                ", availability=" + availability +
-                '}';
+    public void setEnd(LocalDateTime end) {
+        this.end = end;
+    }
+
+    public LocalDateTime getEndOnLastFailure() {
+        return endOnLastFailure;
+    }
+
+    public void setEndOnLastFailure(LocalDateTime endOnLastFailure) {
+        this.endOnLastFailure = endOnLastFailure;
+    }
+
+    public Integer getSuccessCount() {
+        return successCount;
+    }
+
+    public void setSuccessCount(Integer successCount) {
+        this.successCount = successCount;
+    }
+
+    public Integer getFailureCount() {
+        return failureCount;
+    }
+
+    public void setFailureCount(Integer failureCount) {
+        this.failureCount = failureCount;
+    }
+
+    public Integer getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
+    }
+
+    public Double getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(Double availability) {
+        this.availability = availability;
+    }
+
+    public Double getAvailabilityOnLastFailure() {
+        return availabilityOnLastFailure;
+    }
+
+    public void setAvailabilityOnLastFailure(Double availabilityOnLastFailure) {
+        this.availabilityOnLastFailure = availabilityOnLastFailure;
     }
 }

@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class LogParser {
+public class LogParser { //TODO отрефакторить
 
     public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm:ss Z");
     public static final Pattern LOG_PATTERN = Pattern.compile("^(\\S+) - - \\[(.*?)\\] \"(.*?)\" (\\d+) (\\d+) (\\S+) \"(.*?)\" \"(.*?)\".*$");
